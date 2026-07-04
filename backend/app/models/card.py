@@ -19,3 +19,5 @@ class Card(Base):
     rookie = Column(Boolean, default=False)
 
     player = relationship("Player", back_populates="cards")
+    sales = relationship("Sale", back_populates="card")
+    listings = relationship("Listing", back_populates="card")
