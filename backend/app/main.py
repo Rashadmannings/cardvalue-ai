@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.auth import router as auth_router
+from app.api.collection import router as collection_router
+from app.api.cards import router as cards_router
 
 app = FastAPI(
     title="CardValue AI API",
@@ -17,6 +19,8 @@ app.add_middleware(
 )
 
 app.include_router(auth_router)
+app.include_router(collection_router)
+app.include_router(cards_router)
 
 @app.get("/")
 def health_check():
